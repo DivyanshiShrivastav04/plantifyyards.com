@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantifyYards - Professional Gardening & Landscaping Services</title>
+    <meta name="description" content="Transform your outdoor space with professional gardening and landscaping services. Expert lawn care, garden design, and landscape maintenance for residential and commercial properties.">
+    <meta name="keywords" content="gardening services, landscaping, lawn care, garden design, landscape maintenance, seasonal planting, professional gardeners">
+    <meta property="og:title" content="PlantifyYards - Professional Gardening & Landscaping Services">
+    <meta property="og:description" content="Transform your outdoor space with professional gardening and landscaping services.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/siteicon.jpg">
+
+
+    <style>
+        /* Basic Reset and Utilities */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+  .header {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.8rem 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      /* display: flex; */
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Brand */
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo svg {
+      background: #e6f4ee;
+      padding: 6px;
+      border-radius: 8px;
+    }
+    .brand-name {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #2d6a4f;
+    }
+
+    /* Nav Links */
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-link {
+      color: #333;
+      font-weight: 500;
+      position: relative;
+    }
+    .nav-link.active {
+      color: #2d6a4f;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #2d6a4f;
+    }
+
+    /* Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+    .btn-primary {
+      background-color: #2d6a4f;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #22543d;
+    }
+
+    /* Hamburger Button */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #2d6a4f;
+      border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .nav-menu,
+      .nav-actions {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        gap: 1rem;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+
+      .nav-menu.show,
+      .nav-actions.show {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+      }
+
+      /* Hide Quote button in mobile */
+      .desktop-only {
+        display: none !important;
+      }
+    }
+
+    /* Desktop-only */
+    .desktop-only {
+      display: flex;
+    }
+
+
+    .testimonial-section {
+  background-color: #f2f8f3;
+  padding: 80px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #2e6a38;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #5b7c5c;
+  font-size: 16px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #6ab04c;
+}
+
+.testimonial-author h4 {
+  font-size: 16px;
+  margin: 0;
+  color: #2e6a38;
+}
+
+.testimonial-author span {
+  font-size: 14px;
+  color: #777;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+ <header class="header" id="header">
+    <div class="container">
+      <div class="nav-brand">
+        <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+      </div>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions desktop-only">
+        <a href="#contact" class="btn btn-primary">Get Quote</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transform Your
+                    <span class="hero-highlight">Outdoor Space</span>
+                </h1>
+                <p class="hero-subtitle">
+                    From urban gardens to expansive landscapes, our expert team delivers exceptional services tailored to your needs.
+                </p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary">
+                        Explore Services
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22,4 12,14.01 9,11.01"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Expert Services</h2>
+      <p class="section-subtitle">
+        We offer comprehensive gardening and landscaping solutions to transform your outdoor space into a beautiful, thriving environment.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service Card Example -->
+      <div class="service-card">
+        <img src="images/card1.jpg" alt="Lawn Care" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Lawn Care</h3>
+        <p class="service-description">
+          Professional mowing, edging, and fertilizing to maintain a healthy, vibrant lawn all year long.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+
+<div id="serviceModal" class="modal" style="display:none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.6);">
+  <div class="modal-content" style="background: #fff; margin: 5% auto; padding: 1.5rem; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto; position: relative; font-size: 14px;">
+    <span class="close-btn" style="position: absolute; top: 1rem; right: 1.5rem; font-size: 50px; cursor: pointer; font-weight: bold; color: #333;">&times;</span>
+    
+    <!-- Contact Section Inside Modal -->
+    <section class="contact" id="popup-contact">
+      <div class="section-header" style="text-align: center; margin-bottom: 1rem;">
+        <h2 class="section-title" style="font-size: 25px; margin: 0 0 0.5rem;">Get Your Free Quote</h2>
+        <p class="section-subtitle" style="font-size: 13px; color: #555;">
+          Ready to transform your outdoor space? Contact us today for a personalized consultation and free quote.
+        </p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="name" style="display: block; font-size: 13px; margin-bottom: 4px;">Full Name</label>
+          <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; font-size: 13px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="email" style="display: block; font-size: 13px; margin-bottom: 4px;">Email Address</label>
+          <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; font-size: 13px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="message" style="display: block; font-size: 13px; margin-bottom: 4px;">Project Details</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell us about your gardening or landscaping project..." style="width: 100%; padding: 0.5rem; font-size: 13px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="background: #2e7d32; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; font-size: 14px; cursor: pointer;">
+          Send Message
+        </button>
+      </form>
+    </section>
+  </div>
+</div>
+
+
+      <div class="service-card">
+        <img src="images/card2.jpg" alt="Garden Design" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Garden Design</h3>
+        <p class="service-description">
+          Tailored garden layouts with the perfect mix of beauty, function, and sustainability for your space.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+</div>
+      <div class="service-card">
+        <img src="images/card3.jpg" alt="Landscape Maintenance" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Landscape Maintenance</h3>
+        <p class="service-description">
+          Pruning, weeding, and upkeep to ensure your landscape stays lush, neat, and flourishing.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="images/card4.jpg" alt="Seasonal Planting" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Seasonal Planting</h3>
+        <p class="service-description">
+          Add color and life to your garden with expert seasonal plant selection and installation.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+ 
+
+      <div class="service-card">
+        <img src="images/card5.jpg" alt="Landscape Design" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Landscape Design</h3>
+        <p class="service-description">
+          Award-winning designs that balance beauty and function, tailored to your soil and sunlight needs.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="images/card6.jpg" alt="Organic Maintenance" class="service-image" />
+        <div class="content-div">
+        <h3 class="service-title">Organic Maintenance</h3>
+        <p class="service-description">
+          Eco-friendly solutions using natural pest control and compost-based fertilization for healthy growth.
+        </p>
+        <a href="#" class="service-link">Learn More →</a>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Our Expert Team</h2>
+                    <p class="about-description">
+                        With over 15 years of experience in the gardening and landscaping industry, our passionate team of experts is dedicated to creating and maintaining beautiful outdoor spaces that enhance your property's value and your quality of life.
+                    </p>
+                    <p class="about-description">
+                        We believe that every garden tells a story, and our philosophy centers around sustainable practices, native plant integration, and designs that work harmoniously with the natural environment. From intimate urban gardens to expansive commercial landscapes, we bring creativity, expertise, and attention to detail to every project.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            </svg>
+                            <span>Certified Landscape Professionals</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            </svg>
+                            <span>Eco-Friendly & Sustainable Practices</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            </svg>
+                            <span>100% Customer Satisfaction Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Professional gardening team at work">
+                    <div class="about-badge">
+                        <div class="badge-number">15+</div>
+                        <div class="badge-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Your Free Quote</h2>
+                <p class="section-subtitle">
+                    Ready to transform your outdoor space? Contact us today for a personalized consultation and free quote.
+                </p>
+            </div>
+
+            <div class="contact-content">
+              <div class="contact-form-container">
+  <form class="contact-form" id="contactForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Project Details</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Tell us about your gardening or landscaping project..."></textarea>
+    </div>
+
+    <!-- ✅ Checkbox Field -->
+    <div class="form-group">
+      <label style=" align-items: center; gap: 8px;">
+        <input type="checkbox" id="agree" name="agree" required>
+  By submitting this form, you agree to receive text messages from PlantifyYards. See our <a href="privacy-policy.html" target="_blank" style="color: #2d6a4f; text-decoration: underline;">Privacy Policy</a> 
+        
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+  </form>
+</div>
+
+
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">Phone</div>
+                                    <div class="contact-value"><a href="tel:+16082554450" style="text-decoration: none; color: #6b7280;">+1608 255-4450</a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">Email</div>
+                                    <div class="contact-value"><a href="mailto:customer@PlantifyYards.com" style="text-decoration: none;color: #6b7280;">customer@PlantifyYards.com</a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="contact-label">Address</div>
+                                    <div class="contact-value">1012 Williamson St Madison, WI 53703 United States</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="why-choose-card">
+                        <h3>Why Choose PlantifyYards?</h3>
+                        <ul class="features-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                Award-winning landscape designs
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                Licensed & insured professionals
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                Free consultations & estimates
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                </svg>
+                                100% satisfaction guarantee
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="testimonial-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Happy Customers Say</h2>
+      <p>Trusted by garden lovers across the country</p>
+    </div>
+    <div class="testimonials">
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">"PlantifyYard turned my backyard into a peaceful green retreat. The quality of plants and support was excellent!"</p>
+        <div class="testimonial-author">
+          <img src="images/client1.jpeg" alt="Customer 1">
+          <div>
+            <h4>Emily Johnson</h4>
+            <span>742 Evergreen Terrace,<br>Springfield, IL 62704, USA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Amazing selection and healthy plants. Delivery was fast and perfectly packed. Will definitely order again!"</p>
+        <div class="testimonial-author">
+          <img src="images/client2.png" alt="Customer 2">
+          <div>
+            <h4>Michael Thompson</h4>
+            <span>2200 Mission Street,<br>San Francisco, CA 94110, USA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-text">"We ordered for our office garden and were blown away by the freshness and service. Highly recommended!"</p>
+        <div class="testimonial-author">
+          <img src="images/client3.png" alt="Customer 3">
+          <div>
+            <h4>Sophia Williams</h4>
+            <span>88 Beacon Street,<br>Boston, MA 02108, USA</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Footer -->
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo" style="width: 100px; height: 100px;">
+                          <img src="images/logo-footer.png" height="100%" width="100%" alt="">
+                        </div>
+
+                    </div>
+                    <p class="footer-description">
+                        Professional gardening and landscaping services that transform outdoor spaces into beautiful, sustainable environments.
+                    </p>
+                 
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Lawn Care</a></li>
+                        <li><a href="#services">Garden Design</a></li>
+                        <li><a href="#services">Landscape Maintenance</a></li>
+                        <li><a href="#services">Seasonal Planting</a></li>
+                        <li><a href="#services">Landscape Design</a></li>
+                        <li><a href="#services">Organic Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span><a href="tel:+16082554450" style="text-decoration: none; color: #9ca3af;">+1608 255-4450</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span><a href="mailto:customer@PlantifyYards.com" style="text-decoration: none;color: #9ca3af;">customer@PlantifyYards.com</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>1012 Williamson St Madison, WI 53703 United States</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 <a href="https://www.plantifyyards.com" style="text-decoration: none;color: #9ca3af;">PlantifyYards</a>. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-conditions.html">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
